@@ -50,7 +50,7 @@ const AddProductPage: React.FC = () => {
           <h1 className="text-2xl font-bold">Add Product</h1>
           <button
             onClick={showModal}
-            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+            className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
           >
             Add New Item
           </button>
@@ -58,7 +58,7 @@ const AddProductPage: React.FC = () => {
         {products.length > 0 && (
           <div className="mt-8">
             <h2 className="text-xl font-bold mb-4">Product Preview</h2>
-            <div className="flex  gap-4 mx-auto m-12">
+            <div className="flex flex-wrap gap-10 mx-auto m-12">
               {products?.map((product, index) => (
                 <CardComponents key={index} product={product} />
               ))}
