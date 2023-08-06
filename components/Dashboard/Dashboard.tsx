@@ -1,12 +1,12 @@
 "use client";
 import React, { useState } from "react";
-import {
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
-  UploadOutlined,
-  UserOutlined,
-  VideoCameraOutlined,
-} from "@ant-design/icons";
+// import {
+//   MenuFoldOutlined,
+//   MenuUnfoldOutlined,
+//   UploadOutlined,
+//   UserOutlined,
+//   VideoCameraOutlined,
+// } from "@ant-design/icons";
 import { Layout, Menu, Button, theme } from "antd";
 
 const { Header, Sider, Content } = Layout;
@@ -19,10 +19,10 @@ const App: React.FC = () => {
 
   return (
     <Layout className="h-screen pt-24 bg-black">
-      <div className="space-y-24"></div>
-      <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className="demo-logo-vertical" />
-        <Menu
+      <div className="space-y-24">test</div>
+      {/* <Sider trigger={null} collapsible collapsed={collapsed}>
+        <div className="demo-logo-vertical" /> */}
+      {/* <Menu
           theme="dark"
           mode="inline"
           defaultSelectedKeys={["1"]}
@@ -63,8 +63,8 @@ const App: React.FC = () => {
           }}
         >
           Content
-        </Content>
-      </Layout>
+        </Content> */}
+      {/* </Layout> */}
     </Layout>
   );
 };

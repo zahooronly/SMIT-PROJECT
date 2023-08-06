@@ -1,5 +1,5 @@
+import Link from "next/link";
 import React from "react";
-
 const Hero = () => {
   return (
     <div
@@ -11,6 +11,11 @@ const Hero = () => {
         <div className="flex justify-center items-center flex-col bg-white/30 backdrop-blur-lg rounded-xl p-24">
           <h1 className="font-bold text-4xl">Saylani Fashion Store</h1>
           <p className="">Welcome To Our Fashion Store here at Saylani</p>
+          <Link href={"/products"}>
+            <button className="border p-4 rounded-lg hover:bg-white hover:text-black">
+              Buy Products
+            </button>
+          </Link>
         </div>
       </div>
     </div>
