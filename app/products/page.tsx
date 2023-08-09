@@ -179,21 +179,23 @@ const AddProductPage: React.FC = () => {
   };
 
   return (
-    <div className="bg-white/30 min-h-screen bg-[url(https://images.unsplash.com/photo-1441986300917-64674bd600d8?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80)] bg-cover bg-center">
-      <div className="py-24"></div>
-      <div className="p-12  rounded-xl backdrop-blur-md mx-auto container bg-white/40">
-        <div className="flex justify-between mt-6">
-          <h1 className="text-2xl font-bold">Products</h1>
+    <div className="bg-white/30 min-h-screen bg-desktop bg-fixed bg-cover bg-center">
+      <div className="py-12"></div>
+      <div className="p-12 rounded-xl backdrop-blur-md mx-auto container bg-white/40">
+        <div className="flex justify-between mt-3">
+          <h1 className="text-2xl font-bold text-pink-500">Products</h1>
           <button
             onClick={showModal}
-            className="bg-gray-500 hover:bg-gray-700 text-white font-bold py-2 px-4 rounded"
+            className="bg-pink-500 hover:bg-pink-600 transition-colors duration-150 text-white font-bold py-2 px-4 rounded"
           >
             Add New Item
           </button>
         </div>
         {products.length > 0 && (
           <div className="mt-8">
-            <h2 className="text-xl font-bold mb-4">Product Preview</h2>
+            <h2 className="text-xl font-bold mb-4 text-pink-500">
+              Product Preview
+            </h2>
             <div className="flex flex-wrap gap-10 mx-auto m-12">
               {products?.map((product, index) => (
                 <CardComponents key={index} product={product} />

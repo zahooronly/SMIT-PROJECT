@@ -14,7 +14,7 @@ const Navbar = () => {
     const changeColor = () => {
       if (window.scrollY >= 90) {
         setColor("#fff");
-        setTextColor("#000");
+        setTextColor("rgb(219 39 119)");
       } else {
         setColor("transparent");
         setTextColor("#fff");
@@ -68,45 +68,30 @@ const Navbar = () => {
         <div
           className={
             nav
-              ? "sm:hidden absolute right-0 left-0 bottom-0 top-0 justify-center flex items-center w-full h-screen text-center bg-black ease-in duration-300"
-              : "sm:hidden absolute right-0 left-[-100%] bottom-0 top-0 justify-center flex items-center w-full h-screen text-center bg-black ease-in duration-300"
+              ? "sm:hidden absolute right-0 left-0 bottom-0 top-0 justify-center flex items-center w-full h-screen text-center bg-pink-600/70 ease-in duration-300"
+              : "sm:hidden absolute right-0 left-[-100%] bottom-0 top-0 justify-center flex items-center w-full h-screen text-center bg-pink-600/70 ease-in duration-300"
           }
         >
           <ul>
-            <li
-              onChange={navHandler}
-              className="p-4 text-4xl hover:text-gray-500"
-            >
+            <li onChange={navHandler} className="p-4 text-4xl hover:text-white">
               <Link href={"/"}>Home</Link>
             </li>
             <li
               onChange={navHandler}
-              className="p-4 text-4xl ease-in-out hover:text-gray-500"
+              className="p-4 text-4xl ease-in-out hover:text-white"
             >
               <Link href={"/dashboard"}>Dashboard</Link>
             </li>
-            <li
-              onChange={navHandler}
-              className="p-4 text-4xl hover:text-gray-500"
-            >
+            <li onChange={navHandler} className="p-4 text-4xl hover:text-white">
               <Link href={"/products"}>Products</Link>
             </li>
-            <li
-              onChange={navHandler}
-              className="p-4 text-4xl hover:text-gray-500"
-            >
+            <li onChange={navHandler} className="p-4 text-4xl hover:text-white">
               <Link href={"/card"}>Cart</Link>
             </li>
-            <li
-              onChange={navHandler}
-              className="p-4 text-4xl hover:text-gray-500"
-            >
+            <li onChange={navHandler} className="p-4 text-4xl hover:text-white">
               <Link href={"/signup"}>Register</Link>
             </li>
-            <li
-              onChange={navHandler}
-              className="p-4 text-4xl hover:text-gray-500"
-            >
+            <li onChange={navHandler} className="p-4 text-4xl hover:text-white">
               <Link href={"/login"}>Login</Link>
             </li>
           </ul>
