@@ -1,72 +1,86 @@
 "use client";
 import React, { useState } from "react";
-// import {
-//   MenuFoldOutlined,
-//   MenuUnfoldOutlined,
-//   UploadOutlined,
-//   UserOutlined,
-//   VideoCameraOutlined,
-// } from "@ant-design/icons";
-import { Layout, Menu, Button, theme } from "antd";
 
-const { Header, Sider, Content } = Layout;
+const Dashboard: React.FC = () => {
+  const [products, setProducts] = useState<Product[]>([]);
+  const [cart, setCart] = useState<CartItem[]>([]);
 
-const App: React.FC = () => {
-  const [collapsed, setCollapsed] = useState(false);
-  const {
-    token: { colorBgContainer },
-  } = theme.useToken();
+  const handleAddToCart = (product: Product) => {
+    const existingCartItem = cart.find((item) => item.product === product);
+
+    if (existingCartItem) {
+      // If the product is already in the cart, update its quantity
+      const updatedCart = cart.map((item) =>
+        item.product === product
+          ? { ...item, quantity: item.quantity + 1 }
+          : item
+      );
+      setCart(updatedCart);
+    } else {
+      // If the product is not in the cart, add it
+      setCart([...cart, { product, quantity: 1 }]);
+    }
+  };
+
+  const calculateTotalPrice = () => {
+    return cart.reduce(
+      (total, item) => total + item.product.price * item.quantity,
+      0
+    );
+  };
 
   return (
-    <Layout className="h-screen pt-24 bg-black">
-      <div className="space-y-24">test</div>
-      {/* <Sider trigger={null} collapsible collapsed={collapsed}>
-        <div className="demo-logo-vertical" /> */}
-      {/* <Menu
-          theme="dark"
-          mode="inline"
-          defaultSelectedKeys={["1"]}
-          items={[
-            {
-              key: "2",
-              icon: <VideoCameraOutlined />,
-              label: "Products",
-            },
-            {
-              key: "3",
-              icon: <UploadOutlined />,
-              label: "Order",
-            },
-          ]}
-        />
-      </Sider>
-      <Layout>
-        <Header style={{ padding: 0, background: colorBgContainer }}>
-          <Button
-            type="text"
-            icon={collapsed ? <MenuUnfoldOutlined /> : <MenuFoldOutlined />}
-            onClick={() => setCollapsed(!collapsed)}
-            style={{
-              fontSize: "16px",
-              width: 64,
-              height: 64,
+    <div className="bg-desktop bg-cover bg-fixed">
+      <div className="pt-24 flex flex-col sm:flex-row h-screen backdrop-blur-lg">
+        <div className="w-full sm:w-1/2 border-r">
+          <h2 className="text-xl font-bold mb-4">Product List</h2>
+          <button
+            className="bg-blue-500 text-white px-4 py-2 rounded mb-4"
+            onClick={() => {
+              /* Handle adding a new product */
             }}
-          />
-        </Header>
-        <Content
-          style={{
-            margin: "24px 16px",
-            padding: 24,
-            minHeight: 280,
-            background: colorBgContainer,
-            color: "black",
-          }}
-        >
-          Content
-        </Content> */}
-      {/* </Layout> */}
-    </Layout>
+          >
+            Add New Product
+          </button>
+          {products.map((product, index) => (
+            <div key={index} className="mb-2">
+              <p>{product.name}</p>
+              <button
+                className="bg-green-500 text-white px-2 py-1 rounded"
+                onClick={() => handleAddToCart(product)}
+              >
+                Add to Cart
+              </button>
+            </div>
+          ))}
+        </div>
+        <div className="w-full sm:w-1/2 p-4">
+          <h2 className="text-xl font-bold mb-4">Cart</h2>
+          {cart.map((item, index) => (
+            <div key={index} className="mb-2">
+              <p>
+                {item.product.name} - Quantity: {item.quantity}
+              </p>
+            </div>
+          ))}
+          <p className="font-bold mt-4">
+            Total Price: ${calculateTotalPrice()}
+          </p>
+        </div>
+      </div>
+    </div>
   );
 };
 
-export default App;
+export default Dashboard;
+
+// Interfaces for Product and CartItem
+interface Product {
+  name: string;
+  price: number;
+}
+
+interface CartItem {
+  product: Product;
+  quantity: number;
+}

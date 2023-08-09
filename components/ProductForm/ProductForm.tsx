@@ -138,6 +138,13 @@ const ProductForm: React.FC<{
             <option value="red">Red</option>
             <option value="blue">Blue</option>
             <option value="green">Green</option>
+            <option value="yellow">Yellow</option>
+            <option value="orange">Orange</option>
+            <option value="purple">Purple</option>
+            <option value="pink">Pink</option>
+            <option value="black">Black</option>
+            <option value="white">White</option>
+
             {/* Add more color options here */}
           </select>
         </div>
@@ -153,10 +160,18 @@ const ProductForm: React.FC<{
             className="w-full border border-gray-300 rounded-md px-3 py-2 focus:outline-none focus:border-blue-500"
           >
             <option value="">Select Size</option>
-            <option value="small">Small</option>
-            <option value="medium">Medium</option>
-            <option value="large">Large</option>
-            {/* Add more size options here */}
+            <option value="5">5</option>
+            <option value="6">6</option>
+            <option value="7">7</option>
+            <option value="8">8</option>
+            <option value="8.5">8.5</option>
+            <option value="9">9</option>
+            <option value="9.5">9.5</option>
+            <option value="10">10</option>
+            <option value="10.5">10.5</option>
+            <option value="11">11</option>
+            <option value="11.5">11.5</option>
+            <option value="12">12</option>
           </select>
         </div>
         <div>

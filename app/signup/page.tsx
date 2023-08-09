@@ -18,20 +18,15 @@ const SignupPage = () => {
     // Handle sign up logic here
     try {
       setLoader(true);
-      const response = await axios.post(
-        "http://localhost:7000/user/signUp",
-        user
-      );
+      const response = await axios.post("/api/users/signup", user);
       console.log("Signup success", response.data);
       toast.success("Signup success");
-      toast.success(response.data);
-      <Toaster />;
+      // toast.success(response.data);
       router.push("/login");
     } catch (error: any) {
       console.log("Signup failed", error.message);
-      toast.error("Signup Failed");
-      toast.error(error.message);
-      <Toaster />;
+      toast.error("Signup Failed" + error.message);
+      // toast.error();
     } finally {
       setLoader(false);
     }
@@ -52,7 +47,8 @@ const SignupPage = () => {
   }, [user]);
 
   return (
-    <div className="flex items-center justify-center min-h-screen bg-[url('https://plus.unsplash.com/premium_photo-1690820317284-9369ca82c397?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1170&q=80')] bg-cover">
+    <div className="flex items-center justify-center min-h-screen bg-desktop bg-cover">
+      <Toaster />;
       <div className="bg-white rounded-lg  shadow-lg p-8 bg-white/40 backdrop-blur-lg">
         <h1 className="text-4xl text-gray-700 font-bold mb-6 text-center z-50">
           {loader ? "Loading..." : "Signup"}
