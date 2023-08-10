@@ -16,5 +16,9 @@ export async function POST(request:NextRequest){
         stock
     })
     return NextResponse.json({message:"Product created successfully",product},{status:201});
-
+}
+export async function GET(){
+    await connected();
+    const products=await Product.find();
+    return NextResponse.json({products},{status:200});
 }
