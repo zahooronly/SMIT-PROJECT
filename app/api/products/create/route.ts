@@ -1,11 +1,11 @@
 import { connected } from "@/config/dbConfig";
 import { NextRequest, NextResponse } from "next/server";
-import Product from "@/models/productSchema";
+import ProductModel from "@/models/productSchema";
 
 export async function POST(request:NextRequest){
     const {name,category,description,price,color,size,image,stock}=await request.json();
     await connected();
-    const product=await Product.create({
+    const product=await ProductModel.create({
         name,
         category,
         description,
@@ -17,8 +17,23 @@ export async function POST(request:NextRequest){
     })
     return NextResponse.json({message:"Product created successfully",product},{status:201});
 }
-export async function GET(){
+
+
+
+// export async function GET(){
+//     try {
+//         await connected();
+//         const products=await ProductModel.find();
+//         return NextResponse.json({products},{status:200});
+//     } catch (error) {
+//         console.log("Error: ",error);
+//     }
+// }
+
+
+export async function DELETE(request:NextRequest){
+    const id=request.nextUrl.searchParams.get("id");
     await connected();
-    const products=await Product.find();
-    return NextResponse.json({products},{status:200});
+    await ProductModel.findByIdAndDelete(id);
+    return NextResponse.json({message:"Product deleted successfully"},{status:200});
 }

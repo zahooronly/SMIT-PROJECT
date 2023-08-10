@@ -48,13 +48,16 @@ const Navbar = () => {
             <Link href={"/products"}>products</Link>
           </li>
           <li className="px-3 py-2 hover:bg-pink-400 rounded-md cursor-pointer">
+            <Link href={"/cart"}>Cart</Link>
+          </li>
+          <li className="px-3 py-2 hover:bg-pink-400 rounded-md cursor-pointer">
             <Link href={"/login"}>Login</Link>
           </li>
           <li className="px-3 py-2 hover:bg-pink-400 rounded-md cursor-pointer">
             <Link href={"/signup"}>Signup</Link>
           </li>
           <li className="px-3 py-2 hover:bg-pink-400 rounded-md cursor-pointer">
-            <Link href={"/cart"}>Cart</Link>
+            <Link href={"/profile"}>Logout</Link>
           </li>
         </ul>
         {/* Mobile Buttons */}
